@@ -12,8 +12,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $cli = Cliente::all();
-        return view('clientes/index-cliente', compact('cli'));
+        $cliente = Cliente::all();
+        return view('clientes/index-cliente', compact('cliente'));
     }
 
     /**
@@ -36,13 +36,12 @@ class ClienteController extends Controller
             'dir_cli' => ['required', 'max:255'],
             'tel_cli' => ['required', 'integer']
         ]);
-        // dd($request->all());
-        $cli = new Cliente();
-        $cli->nomb_cli = $request->nomb_cli;
-        $cli->correo_cli = $request->correo_cli;
-        $cli->dir_cli = $request->dir_cli;
-        $cli->tel_cli = $request->tel_cli;
-        $cli->save();
+        $cliente = new Cliente();
+        $cliente->nomb_cli      = $request->nomb_cli;
+        $cliente->correo_cli    = $request->correo_cli;
+        $cliente->dir_cli       = $request->dir_cli;
+        $cliente->tel_cli       = $request->tel_cli;
+        $cliente->save();
     
         return ClienteController::index();
     }
@@ -52,7 +51,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return view('clientes/show-cliente', compact('cliente'));
     }
 
     /**
@@ -60,7 +59,8 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('clientes/edit-cliente', compact('cliente')); 
+        
     }
 
     /**
@@ -68,7 +68,19 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        $request->validate([
+            'nomb_cli' => ['required', 'max:255'],
+            'correo_cli' => ['required', 'max:255'],
+            'dir_cli' => ['required', 'max:255'],
+            'tel_cli' => ['required', 'integer']
+        ]);
+        $cliente->nomb_cli      = $request->nomb_cli;
+        $cliente->correo_cli    = $request->correo_cli;
+        $cliente->dir_cli       = $request->dir_cli;
+        $cliente->tel_cli       = $request->tel_cli;
+        $cliente->save();
+
+        return redirect()->route('clientes.show', $cliente);
     }
 
     /**

@@ -7,23 +7,23 @@
     <title>Mostrar</title>
 </head>
 <body>
-    <h2>Producto seleccionado</h2>
+    <h2>Cliente seleccionado</h2>
     <p>
-        {{ $producto->id }}
+        {{ $cliente->id }}
     </p>
     <p>
-        {{ $producto->nomb_prod }}
+        {{ $cliente->nomb_cli }}
     </p>
     <p>
-        {{ $producto->desc_prod }}
+        {{ $cliente->correo_cli }}
     </p>
     <p>
-        {{ $producto->cant_prod }}
+        {{ $cliente->dir_cli }}
     </p>
     <p>
-        {{ $producto->prec_prod }}
+        {{ $cliente->tel_cli }}
     </p>
     
-    <a href="{{ route('productos.index') }}">Inicio</a>
+    <a href="{{ route('clientes.index') }}">Inicio</a>
 </body>
 </html>

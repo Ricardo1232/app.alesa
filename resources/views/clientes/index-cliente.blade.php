@@ -8,12 +8,17 @@
 </head>
 <body>
     <h2>Clientes</h2>
-    <a href="/crear">Agregar un Cliente</a>
+    <a href="/">Inicio</a>
+    <br>
+    <br>
+    <a href="{{ route('clientes.create') }}">Agregar un cliente</a>
     <br>
     <ul>
-        @foreach($cli as $mos)
+        @foreach($cliente as $mos)
         <li>
-            {{ $mos->nomb_cli }}  {{ $mos->correo_cli }}
+            {{ $mos->nomb_cli }}   {{ $mos->correo_cli }}  -  
+            <a href="{{ route('clientes.show', $mos->id) }}">Ver detalle</a>  -  
+            <a href="{{ route('clientes.edit', $mos->id) }}">Editar</a>
         </li>
         @endforeach
     </ul>

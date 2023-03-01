@@ -36,12 +36,12 @@ class ProductoController extends Controller
             'cant_prod' => ['required', 'integer'],
             'prec_prod' => ['required', 'numeric']
         ]);
-        // dd($request->all());
+
         $prod = new Producto();
-        $prod->nomb_prod = $request->nomb_prod;
-        $prod->desc_prod = $request->desc_prod;
-        $prod->cant_prod = $request->cant_prod;
-        $prod->prec_prod = $request->prec_prod;
+        $prod->nomb_prod    = $request->nomb_prod;
+        $prod->desc_prod    = $request->desc_prod;
+        $prod->cant_prod    = $request->cant_prod;
+        $prod->prec_prod    = $request->prec_prod;
         $prod->save();
     
         return ProductoController::index();
@@ -68,6 +68,13 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
+        $request->validate([
+            'nomb_prod' => ['required', 'max:255'],
+            'desc_prod' => ['required', 'max:255'],
+            'cant_prod' => ['required', 'integer'],
+            'prec_prod' => ['required', 'numeric']
+        ]);
+        
         $producto->nomb_prod = $request->nomb_prod;
         $producto->desc_prod = $request->desc_prod;
         $producto->cant_prod = $request->cant_prod;

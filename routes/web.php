@@ -20,4 +20,5 @@ Route::get('/', function () {
 });
 
 Route::resource('productos', ProductoController::class);
+Route::resource('clientes', ClienteController::class);
 

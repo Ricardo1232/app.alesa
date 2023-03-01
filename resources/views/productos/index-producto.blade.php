@@ -8,14 +8,17 @@
 </head>
 <body>
     <h2>Productos</h2>
+    <a href="/">Inicio</a>
+    <br>
+    <br>
     <a href="{{ route('productos.create') }}">Agregar un producto</a>
     <br>
     <ul>
         @foreach($producto as $mos)
         <li>
-            {{ $mos->nomb_prod }}  {{ $mos->prec_prod }}
-            <a href="{{ route('productos.show', $mos->id) }}"> Ver detalle</a>
-            <a href="{{ route('productos.edit', $mos->id) }}"> Editar</a>
+            {{ $mos->nomb_prod }}   {{ $mos->prec_prod }}  -  
+            <a href="{{ route('productos.show', $mos->id) }}"> Ver detalle</a>  -  
+            <a href="{{ route('productos.edit', $mos->id) }}">Editar</a>
         </li>
         @endforeach
     </ul>
