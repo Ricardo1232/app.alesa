@@ -18,7 +18,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index-alesa');
 });
+Route::get('/prueba', function(){
+    return view('welcome');
+});
 
-Route::resource('productos', ProductoController::class);
-Route::resource('clientes', ClienteController::class);
+Route::resource('productos', ProductoController::class)->middleware('auth');
+Route::resource('clientes', ClienteController::class)->middleware('auth');
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('index-alesa');
+    })->name('dashboard');
+});
