@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nomb_cli');
             $table->string('correo_cli');
             $table->string('dir_cli');
-            $table->integer('tel_cli');
+            $table->string('tel_cli');
             $table->timestamps();
         });
     }

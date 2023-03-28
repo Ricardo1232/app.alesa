@@ -26,49 +26,11 @@
     <br>
     <br>
 
-    <!-- <form action="{{ route('productos.update', $producto) }}" method="POST">
-    @csrf
-    @method('patch')
-      <label for="nombre_prod">Nombre del producto: </label>
-      <input id="nombre_prod" name="nomb_prod" type="text" value="{{ old('nomb_prod') ?? $producto->nomb_prod }}" >
-      <br>
-      <br>
-      @error('nomb_prod')
-      <h3> {{$message}} </h3>
-      @enderror
-      <label for="desc_prod">Descripcion: </label>
-      <input id="desc_prod" name="desc_prod" type="text" value="{{ old('desc_prod') ?? $producto->desc_prod }}">
-      <br>
-      <br>
-      @error('desc_prod')
-      <h3> {{$message}} </h3>
-      @enderror
-      
-      <label for="prec_prod">Precio: </label>
-      <input id="prec_prod" name="prec_prod" type="number" step="0.01" value="{{ old('prec_prod') ?? $producto->prec_prod }}">
-      <br>
-      <br>
-      @error('prec_prod')
-      <h3> {{$message}} </h3>
-      @enderror
-      
-      <label for="cant">Cantidad: </label>
-      <input id="cant" name="cant_prod" type="number" value="{{ old('cant_prod') ?? $producto->cant_prod }}">
-      <br>
-      <br>
-      
-      @error('cant_prod')
-      <h3> {{$message}} </h3>
-      @enderror 
- 
-      <input type="submit" value="Enviar">
-  </form> -->
-
     <!-- Editar Section-->
     <section class="page-section" id="contact">
         <div class="container">
             <!-- Contact Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Registro de productos</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Editar producto</h2>
             <!-- Icon Divider-->
             <div class="divider-custom">
                 <div class="divider-custom-line"></div>
@@ -130,7 +92,7 @@
                             </div>
                         </div>
 
-                        <input class="btn btn-primary btn-xl " id="submitButton" type="submit" title="Enviar">
+                        <button class="btn btn-primary btn-lg " type="submitButton">Enviar</button>
                     </form>
                 </div>
             </div>
@@ -139,18 +101,14 @@
 
     <x-myfooter />
 
-    <!-- Copyright Section-->
-    <div class="copyright py-4 text-center text-black">
-        <div class="container"><small>Copyright &copy; Your Website 2022</small></div>
-    </div>
+    <x-copy />
 
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
     <script src="{{ asset('/scripts.js') }}"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 
 </body>
 

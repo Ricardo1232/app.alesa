@@ -44,7 +44,7 @@
                         <!-- Nombre del producto input-->
                         <div class="form-floating mb-3">
                             <input class="form-control" id="nomb_prod" name="nomb_prod" type="text" value="{{ old('nomb_prod') }}">
-                            <label for="nomb_prod">Nombre del producto: </label>
+                            <label for="nomb_prod">Nombre del producto</label>
 
                             <div class="text-danger">
                                 @error('nomb_prod')
@@ -56,7 +56,7 @@
                         <!-- Descripcion input-->
                         <div class="form-floating mb-3">
                             <input class="form-control" id="desc_prod" name="desc_prod" type="text" value="{{ old('desc_prod') }}">
-                            <label for="desc_prod">Descripcion: </label>
+                            <label for="desc_prod">Descripcion</label>
 
                             <div class="text-danger">
                                 @error('desc_prod')
@@ -68,7 +68,7 @@
                         <!-- Precio input-->
                         <div class="form-floating mb-3">
                             <input class="form-control" id="prec_prod" name="prec_prod" type="number" step="0.01" value="{{ old('prec_prod') }}">
-                            <label for="prec_prod">Precio: </label>
+                            <label for="prec_prod">Precio</label>
 
                             <div class="text-danger">
                                 @error('prec_prod')
@@ -80,7 +80,7 @@
                         <!-- Cantidad input-->
                         <div class="form-floating mb-3">
                             <input class="form-control" id="cant_prod" name="cant_prod" type="number" value="{{ old('cant_prod') }}">
-                            <label for="cant_prod">Cantidad: </label>
+                            <label for="cant_prod">Cantidad</label>
 
                             <div class="text-danger">
                                 @error('cant_prod')
@@ -96,10 +96,7 @@
     </section>
 
     <x-myfooter />
-    <!-- Copyright Section-->
-    <div class="copyright py-4 text-center text-black">
-        <div class="container"><small>Copyright &copy; Your Website 2022</small></div>
-    </div>
+    <x-copy />
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

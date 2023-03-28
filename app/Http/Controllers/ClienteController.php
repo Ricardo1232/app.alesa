@@ -34,14 +34,9 @@ class ClienteController extends Controller
             'nomb_cli' => ['required', 'max:255'],
             'correo_cli' => ['required', 'max:255'],
             'dir_cli' => ['required', 'max:255'],
-            'tel_cli' => ['required', 'integer']
+            'tel_cli' => ['required', 'max:20']
         ]);
-        $cliente = new Cliente();
-        $cliente->nomb_cli      = $request->nomb_cli;
-        $cliente->correo_cli    = $request->correo_cli;
-        $cliente->dir_cli       = $request->dir_cli;
-        $cliente->tel_cli       = $request->tel_cli;
-        $cliente->save();
+        Cliente::create($request->all());
     
         return ClienteController::index();
     }
@@ -68,19 +63,9 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        $request->validate([
-            'nomb_cli' => ['required', 'max:255'],
-            'correo_cli' => ['required', 'max:255'],
-            'dir_cli' => ['required', 'max:255'],
-            'tel_cli' => ['required', 'integer']
-        ]);
-        $cliente->nomb_cli      = $request->nomb_cli;
-        $cliente->correo_cli    = $request->correo_cli;
-        $cliente->dir_cli       = $request->dir_cli;
-        $cliente->tel_cli       = $request->tel_cli;
-        $cliente->save();
+        Cliente::where('id', $cliente->id)->update($request->except('_token','_method'));
 
-        return redirect()->route('clientes.show', $cliente);
+        return ClienteController::index();
     }
 
     /**
@@ -88,6 +73,7 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return redirect()->route('clientes.index');
     }
 }

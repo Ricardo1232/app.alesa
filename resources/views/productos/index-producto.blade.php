@@ -26,8 +26,6 @@
 
 <body id="page-top">
     <x-nav />
-
-
     <br>
     <br>
     <section class="page-section">
@@ -107,12 +105,7 @@
     </section>
 
     <x-myfooter />
-    <!-- Copyright Section-->
-    <div class="copyright py-4 text-center text-black">
-        <div class="container"><small>Copyright &copy; Your Website 2022</small></div>
-    </div>
-
-
+    <x-copy />
 
     <script src="{{ asset('/scripts.js') }}"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
