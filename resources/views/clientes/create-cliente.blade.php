@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crear Clientes</title>
+  <link rel="shortcut icon" href="{{ asset('/LogoIconoAlesa.png') }}" />
 
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
   <!-- Google fonts-->
@@ -42,7 +43,7 @@
         <div class="col-lg-8 col-xl-7">
           <form action="{{ route('clientes.store') }}" method="POST">
             @csrf
-            <!-- Nombre del producto input-->
+            <!-- Nombre input-->
             <div class="form-floating mb-3">
               <input class="form-control" id="nomb_cli" name="nomb_cli" type="text" value="{{ old('nomb_cli') }}">
               <label for="nomb_cli">Nombre del cliente</label>
@@ -54,9 +55,9 @@
               </div>
             </div>
 
-            <!-- Descripcion input-->
+            <!-- Correo input-->
             <div class="form-floating mb-3">
-              <input class="form-control" id="correo_cli" name="correo_cli" type="mail" value="{{ old('correo_cli') }}">
+              <input class="form-control" id="correo_cli" name="correo_cli" type="email" value="{{ old('correo_cli') }}">
               <label for="correo_cli">Correo</label>
 
               <div class="text-danger">
@@ -66,7 +67,7 @@
               </div>
             </div>
 
-            <!-- Precio input-->
+            <!-- Direccion input-->
             <div class="form-floating mb-3">
               <input class="form-control" id="dir_cli" name="dir_cli" type="text" value="{{ old('dir_cli') }}">
               <label for="dir_cli">Dirección</label>
@@ -78,9 +79,9 @@
               </div>
             </div>
 
-            <!-- Cantidad input-->
+            <!-- Telefono input-->
             <div class="form-floating mb-3">
-              <input class="form-control" id="tel_cli" name="tel_cli" type="text" value="{{ old('tel_cli') }}">
+              <input class="form-control" id="tel_cli" name="tel_cli" type="number" value="{{ old('tel_cli') }}">
               <label for="tel_cli">Telefono</label>
 
               <div class="text-danger">

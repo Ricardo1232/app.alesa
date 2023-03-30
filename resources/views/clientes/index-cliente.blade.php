@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Clientes</title>
+    <link rel="shortcut icon" href="{{ asset('/LogoIconoAlesa.png') }}" />
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -69,35 +70,35 @@
                         </td>
                         <td class="py-2 px-3 ">
 
-                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal_borrar"><i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal_borrar{{ $mos->id }}"><i class="fa-solid fa-trash"></i></button>
+                            <div class="modal fade" id="modal_borrar{{ $mos->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Eliminar cliente</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ¿Estás seguro de que quieres eliminar este cliente?
+                                            <p class="alert-info text-center p-1 mx-3 mt-1">
+                                                {{ $mos->nomb_cli }}
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <form action="{{ route('clientes.destroy', $mos) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submitButton" class="btn btn-danger">Eliminar</button>
+        
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
 
-                    <div class="modal fade" id="modal_borrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar cliente</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ¿Estás seguro de que quieres eliminar este cliente?
-                                    <p class="alert-info text-center p-1 mx-3 mt-1">
-                                        {{ $mos->nomb_cli }}
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <form action="{{ route('clientes.destroy', $mos) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submitButton" class="btn btn-danger">Eliminar</button>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     @endforeach
                 </tbody>
             </table>

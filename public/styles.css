@@ -75,7 +75,12 @@
     scroll-behavior: smooth;
   }
 }
-
+.linkhead{
+  font-size: large;
+}
+.linkhead:hover{
+  background-color: #0d5a4b6f;
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -11519,3 +11524,4 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+

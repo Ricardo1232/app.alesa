@@ -35,7 +35,7 @@
                                                         {{ __('Manage Account') }}
                                                     </div>
 
-                                                    <x-dropdown-link class="text-info" href="{{ route('profile.show') }}">
+                                                    <x-dropdown-link class="text-info linkhead" href="{{ route('profile.show') }}">
                                                         {{ __('Profile') }}
                                                     </x-dropdown-link>
 
@@ -46,7 +46,7 @@
                                                     <form method="POST" action="{{ route('logout') }}" x-data>
                                                         @csrf
 
-                                                        <x-dropdown-link class="text-info" href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                                        <x-dropdown-link class="text-info linkhead" href="{{ route('logout') }}" @click.prevent="$root.submit();">
                                                             {{ __('Log Out') }}
                                                         </x-dropdown-link>
                                                     </form>
@@ -73,7 +73,7 @@
                                         <div class="mt-3 space-y-1">
 
                                             <!-- Account Management -->
-                                            <x-dropdown-link class="text-info" href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                                            <x-dropdown-link class="text-info linkhead" href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                                                 {{ __('Profile') }}
                                             </x-dropdown-link>
 
@@ -81,7 +81,7 @@
                                             <form method="POST" action="{{ route('logout') }}" x-data>
                                                 @csrf
 
-                                                <x-responsive-nav-link class="text-info" href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                                <x-responsive-nav-link class="text-info linkhead" href="{{ route('logout') }}" @click.prevent="$root.submit();">
                                                     {{ __('Log Out') }}
                                                 </x-responsive-nav-link>
                                             </form>

@@ -18,13 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index-alesa');
 });
-Route::get('/prueba', function(){
-    return view('welcome');
-});
 
 Route::resource('productos', ProductoController::class)->middleware('auth');
 Route::resource('clientes', ClienteController::class)->middleware('auth');
-
 
 Route::middleware([
     'auth:sanctum',

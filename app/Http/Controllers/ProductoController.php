@@ -35,7 +35,7 @@ class ProductoController extends Controller
          $request->validate([
             'nomb_prod' => ['required', 'max:255'],
             'desc_prod' => ['required', 'max:255'],
-            'prec_prod' => ['required', 'number'],
+            'prec_prod' => ['required', 'numeric'],
             'cant_prod' => ['required', 'integer']
         ]);
         Producto::create($request->all());
