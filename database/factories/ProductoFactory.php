@@ -17,7 +17,7 @@ class ProductoFactory extends Factory
     public function definition(): array
     {
         return [
-            'nomb_prod' => $this->faker->unique()->name(3),
+            'nomb_prod' => $this->faker->unique()->company(),
             'desc_prod' => $this->faker->sentence(5),
             'cant_prod' => $this->faker->numberBetween(1,500),
             'prec_prod' => $this->faker->randomFloat(2,1,1000)

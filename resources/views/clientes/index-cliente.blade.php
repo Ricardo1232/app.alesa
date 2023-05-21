@@ -36,6 +36,7 @@
 
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Clientes</h2>
             <br>
+            <br>
             <div class="contanier pt-4">
                 <div class="row justify-content-center">
                     <div class="col-auto text-center">
@@ -65,6 +66,11 @@
                         <td class="px-2">{{ $mos->correo_cli }}</td>
                         <td class="px-2">{{ $mos->dir_cli }}</td>
                         <td class="px-3 text-center">{{ $mos->tel_cli }}</td>
+                        <td class="px-3">
+                            <a href="{{ route('clientes.show', $mos->id) }}">
+                            Ver productos
+                        </a>
+                        </td>
                         <td class="px-3">
                             <a href="{{ route('clientes.edit', $mos->id) }}"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #0a64ff;"></i></a>
                         </td>

@@ -17,10 +17,10 @@ class ClienteFactory extends Factory
     public function definition(): array
     {
         return [
-            'nomb_cli' => $this->faker->unique()->name(3),
+            'nomb_cli'   => $this->faker->unique()->name(3),
             'correo_cli' => $this->faker->unique()->email(),
-            'dir_cli' => $this->faker->unique()->address(),
-            'tel_cli' => $this->faker->unique()->phoneNumber() 
+            'dir_cli'    => $this->faker->unique()->address(),
+            'tel_cli'    => $this->faker->unique()->phoneNumber() 
         ];
     }
 }

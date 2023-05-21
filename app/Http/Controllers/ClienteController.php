@@ -46,7 +46,12 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        return view('clientes/show-cliente', compact('cliente'));
+        // dd($cliente);
+        $nomb = $cliente->nomb_cli;
+    
+         $prod =  $cliente->productos()->get();
+        // dd($cliente->productos);
+        return view('relaciones/ver-producto', compact('prod', 'nomb'));
     }
 
     /**
