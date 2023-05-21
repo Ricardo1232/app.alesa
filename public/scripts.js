@@ -6,6 +6,61 @@
 //
 // Scripts
 // 
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+
+import Swal from 'sweetalert2';
+
+// Función para mostrar un mensaje de éxito
+function mostrarExito() {
+  Swal.fire('¡Éxito!', 'Se guardo correctamente el registro', 'success');
+}
+function mostrarBorrar() {
+    Swal.fire('¡Éxito!', 'El archivo se ha borrado correctamente', 'success');
+  }
+// Función para mostrar un mensaje de error
+function mostrarError() {
+  Swal.fire('¡Error!', 'Se produjo un error inesperado', 'error');
+}
+
+// Función para mostrar una confirmación
+function mostrarConfirmacion() {
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: 'Esta acción no se puede deshacer',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Acción a realizar si se confirma
+      Swal.fire('¡Eliminado!', 'El elemento ha sido eliminado', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      // Acción a realizar si se cancela
+      Swal.fire('Cancelado', 'La operación ha sido cancelada', 'info');
+    }
+  });
+}
+
+// Función para mostrar un mensaje de información
+function mostrarInformacion() {
+  Swal.fire({
+    title: '¡Atención!',
+    text: 'Esta información desaparecerá en 3 segundos',
+    icon: 'info',
+    timer: 3000,
+    timerProgressBar: true,
+    showConfirmButton: false
+  });
+}
+
+// Llamada a las funciones en el momento adecuado, por ejemplo, en respuesta a eventos
+document.getElementById('btnExito').addEventListener('click', mostrarExito);
+document.getElementById('btnError').addEventListener('click', mostrarError);
+document.getElementById('btnConfirmacion').addEventListener('click', mostrarConfirmacion);
+document.getElementById('btnInformacion').addEventListener('click', mostrarInformacion);
+
 
 window.addEventListener('DOMContentLoaded', event => {
 

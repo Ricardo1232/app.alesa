@@ -11524,4 +11524,6 @@ html {
 .copyright {
   background-color: #1a252f;
 }
-
+.sangria {
+  text-indent: 20px; /* Ajusta el valor según tu preferencia */
+}

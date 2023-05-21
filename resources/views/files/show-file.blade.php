@@ -26,47 +26,48 @@
 
 <!-- -->
 
-<body>
-<x-nav />
+<body id="page-top">
+    <x-nav />
     <br>
     <br>
-    <section class="form-edit">
-        <h4>Eliminar</h4>
-        <hr>
-        <h4>¿Esta seguro de eliminar el siguiente registro?</h4>
+    <section class="page-section">
+        <div class="container">
+            <h4>Eliminar</h4>
+            <hr>
+            <h4>¿Esta seguro de eliminar el siguiente registro?</h4>
 
-        <ul>
-            <li><span>archivo</span>{{$archivo->nombre_original}}</li>
+            <ul>
+                <li><span>archivo</span>{{$archivo->nombre_original}}</li>
 
 
-            <form action="{{ route('archivo.destroy', $archivo ) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="boton_eliminar">BORRAR</button>
+                <form action="{{ route('archivo.destroy', $archivo ) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="boton_eliminar">BORRAR</button>
 
-                @if (session('success'))
+                    @if (session('success'))
                     <script>
                         alert("El archivo se eliminó correctamente.");
                     </script>
-                @endif
+                    @endif
 
-                <a href="{{ route('archivo.index') }}" class="boton_cancelar">CANCELAR</a>
+                    <a href="{{ route('archivo.index') }}" class="boton_cancelar">CANCELAR</a>
 
                 </form>
-                </ul>
-                <br>
-                
+            </ul>
+            <br>
+
             </form>
 
 
-        </ul>
-
+            </ul>
+        </div>
 
     </section>
     <br>
     <br>
 
-    
+
     <!-- -->
 
 

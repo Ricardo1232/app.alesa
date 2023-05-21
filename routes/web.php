@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ArchivoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,10 @@ Route::get('/', function () {
 
 Route::resource('productos', ProductoController::class)->middleware('auth');
 Route::resource('clientes', ClienteController::class)->middleware('auth');
+
+Route::resource('archivos', ArchivoController::class)->middleware('auth');
+Route::get('archivos/descargar/{archivo}', [ArchivoController::class, 'descargar'])->name('archivos.descargar');
+
 
 Route::middleware([
     'auth:sanctum',

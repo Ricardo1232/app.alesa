@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\Producto;
 use App\Models\Cliente;
 use App\Models\User;
+use App\Models\File;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;

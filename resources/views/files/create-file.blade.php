@@ -26,14 +26,15 @@
 
 <!-- -->
 
-<body>
-
-    <section class="form-edit">
+<body id="page-top">
+    <x-nav />
+    <br>
+    <br>
+    <section class="page-section">
         <h4>Cargar Archivos</h4>
         <hr>
-        <form action="{{route('archivo.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('archivos.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
             <div>
                 <label for="archivo"><span class="text-gray-700 dark:text-gray-400">Seleccione el archivo a cargar</span></label>
                 <input class="botons" type="file" name="archivo" id="archivo" required>
