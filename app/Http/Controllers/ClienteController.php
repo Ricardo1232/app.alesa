@@ -13,7 +13,8 @@ class ClienteController extends Controller
     public function index()
     {
         $cliente = Cliente::all();
-        return view('clientes/index-cliente', compact('cliente'));
+        $archivo = session('archivo');
+        return view('cliente/index-cliente', compact('cliente', 'archivo'));
     }
 
     /**
@@ -38,7 +39,8 @@ class ClienteController extends Controller
         ]);
         Cliente::create($request->all());
     
-        return ClienteController::index();
+        return redirect()->route('clientes.index')->with('archivo', 'agregado');
+
     }
 
     /**
@@ -70,7 +72,7 @@ class ClienteController extends Controller
     {
         Cliente::where('id', $cliente->id)->update($request->except('_token','_method'));
 
-        return ClienteController::index();
+        return redirect()->route('clientes.index')->with('archivo', 'update');
     }
 
     /**
@@ -79,6 +81,7 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
-        return redirect()->route('clientes.index');
+
+        return redirect()->route('clientes.index')->with('archivo', 'eliminado');
     }
 }

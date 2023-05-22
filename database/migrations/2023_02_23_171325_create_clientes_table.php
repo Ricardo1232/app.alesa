@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('correo_cli');
             $table->string('dir_cli');
             $table->string('tel_cli');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

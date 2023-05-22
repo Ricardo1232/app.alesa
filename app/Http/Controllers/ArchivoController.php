@@ -14,7 +14,8 @@ class ArchivoController extends Controller
     public function index()
     {
         $file = Archivo::all();
-        return view('files.index-file', compact('file'));
+        $archivo = session('archivo');
+        return view('files.index-file', compact('file', 'archivo'));
     }
 
     /**
@@ -48,7 +49,7 @@ class ArchivoController extends Controller
             $archivo->ext    = $extension;
             $archivo->save();
 
-            return redirect()->route('archivos.index')->with('success', 'El archivo se ha guardado exitosamente.');
+            return redirect()->route('archivos.index')->with('archivo', 'agregado');
         }
 
         return redirect()->back()->with('error', 'No se ha seleccionado ningún archivo.');
@@ -95,7 +96,7 @@ class ArchivoController extends Controller
 
         $archivo->save();
 
-        return redirect()->route('archivos.index')->with('success', 'El archivo se ha actualizado exitosamente.');
+        return redirect()->route('archivos.index')->with('archivo', 'update');
     }
 
     public function destroy(Archivo $archivo)

@@ -32,6 +32,11 @@
         <div class="container">
             <!-- Contact Section Heading-->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Registro de productos</h2>
+
+            @can('producto.create')
+            <!-- Mostrar formulario de creación de producto -->
+
+
             <!-- Icon Divider-->
             <div class="divider-custom">
                 <div class="divider-custom-line"></div>
@@ -90,11 +95,27 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-floating mb-3">
+                            <label for="categoria">Categoria</label>
+                            <select name="categoria" id="categoria" require>
+                                <option value="ambientales">Ambientales</option>
+                                <option value="industriales">Industriales</option>
+                                <option value="varios">Varios</option>
+                            </select>
+
+                            <div class="text-danger">
+                                @error('cant_prod')
+                                {{ $message }}
+                                @enderror
+                            </div>
+                        </div>
                         <button class="btn btn-primary btn-lg " type="submitButton">Enviar</button>
                     </form>
                 </div>
             </div>
         </div>
+
+        @endcan
     </section>
 
     <x-myfooter />

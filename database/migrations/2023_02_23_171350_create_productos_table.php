@@ -15,19 +15,20 @@ return new class extends Migration
             $table->id();
             $table->string('nomb_prod');
             $table->string('desc_prod');
-            $table->decimal('prec_prod', 6,2);
+            $table->decimal('prec_prod', 6, 2);
             $table->integer('cant_prod');
+
+            $table->softDeletes();
             $table->timestamps();
-            
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
+        
         Schema::dropIfExists('productos');
     }
 };

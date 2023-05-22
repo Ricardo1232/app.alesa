@@ -15,7 +15,8 @@ class ProductoController extends Controller
     public function index()
     {
         $producto = Producto::all();
-        return view('productos/index-producto', compact('producto'));
+        $archivo = session('archivo');
+        return view('productos/index-producto', compact('producto', 'archivo'));
     }
 
     /**
@@ -24,15 +25,16 @@ class ProductoController extends Controller
 
     public function create()
     {
+        $this->authorize('producto.create');
         return view('productos/create-producto');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {       
-         $request->validate([
+    {
+        $request->validate([
             'nomb_prod' => ['required', 'max:255'],
             'desc_prod' => ['required', 'max:255'],
             'prec_prod' => ['required', 'numeric'],
@@ -40,7 +42,8 @@ class ProductoController extends Controller
         ]);
         Producto::create($request->all());
 
-        return ProductoController::index();
+        return redirect()->route('productos.index')->with('archivo', 'agregado');
+
     }
 
     /**
@@ -48,7 +51,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        return view('productos/show-producto', compact('producto')); 
+        return view('productos/show-producto', compact('producto'));
     }
 
     /**
@@ -56,7 +59,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        return view('productos/edit-producto', compact('producto')); 
+        return view('productos/edit-producto', compact('producto'));
     }
 
     /**
@@ -64,9 +67,9 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        Producto::where('id', $producto->id)->update($request->except('_token','_method'));
+        Producto::where('id', $producto->id)->update($request->except('_token', '_method'));
 
-        return ProductoController::index();
+        return redirect()->route('productos.index')->with('archivo', 'update');
     }
 
     /**
@@ -75,6 +78,6 @@ class ProductoController extends Controller
     public function destroy(Producto $producto)
     {
         $producto->delete();
-        return redirect()->route('productos.index');
+        return redirect()->route('producto.index')->with('archivo', 'eliminado');
     }
 }

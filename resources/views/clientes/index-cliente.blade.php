@@ -17,6 +17,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -68,8 +71,8 @@
                         <td class="px-3 text-center">{{ $mos->tel_cli }}</td>
                         <td class="px-3">
                             <a href="{{ route('clientes.show', $mos->id) }}">
-                            Ver productos
-                        </a>
+                                Ver productos
+                            </a>
                         </td>
                         <td class="px-3">
                             <a href="{{ route('clientes.edit', $mos->id) }}"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #0a64ff;"></i></a>
@@ -96,7 +99,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submitButton" class="btn btn-danger">Eliminar</button>
-        
+
                                             </form>
                                         </div>
                                     </div>
@@ -112,6 +115,25 @@
         </div>
     </section>
 
+    @if(session('archivo') == 'agregado')
+    <script>
+        Swal.fire('¡Guardado!', 'El archivo se guardo correctamente', 'success');
+        console.log('¡Guardado!');
+    </script>
+    @endif
+    @if(session('archivo') == 'eliminado')
+    <script>
+        Swal.fire('¡Eliminado!', 'El archivo ha sido eliminado', 'success');
+        console.log('¡Eliminado!');
+    </script>
+    @endif
+    @if(session('archivo') == 'update')
+    <script>
+        Swal.fire('¡Modificado!', 'El archivo ha sido modificado', 'success');
+        console.log('¡Modificado!');
+    </script>
+    @endif
+
     <x-myfooter />
     <x-copy />
 
@@ -122,6 +144,7 @@
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>

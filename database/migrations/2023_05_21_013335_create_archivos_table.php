@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('ruta');
             $table->string('ext');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
